@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dental Chatbot Demo</title>
   <style>
     body {
@@ -16,14 +16,22 @@
     header {
       padding: 20px;
     }
+    header img {
+      max-height: 80px;
+      margin-bottom: 10px;
+    }
     h1 {
       font-size: 2.2rem;
       margin-bottom: 10px;
     }
-    p {
-      max-width: 600px;
-      margin: auto;
+    .about {
+      max-width: 700px;
+      margin: 10px auto 30px auto;
       font-size: 1rem;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .card {
       background: white;
@@ -56,6 +64,17 @@
     .links a:hover {
       background-color: #2980b9;
     }
+    .prototype {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .prototype img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
     footer {
       margin-top: 30px;
       padding: 15px;
@@ -67,21 +86,31 @@
 <body>
 
   <header>
+    <!-- Add your logo file name here in the repo -->
+    <img src="logo.png" alt="Your Logo">
     <h1>Dental Chatbot Demo</h1>
-    <p>A AI-powered chatbot designed for a friendly dental clinic — answering patient questions and helping with appointments.</p>
   </header>
 
-  <div class="card">
-    <h2>🎥 2-Minute Overview</h2>
-    <iframe src="https://www.youtube.com/embed/MB27Ws6Gq0o" allowfullscreen></iframe>
-    <div class="links">
-      <a href="https://youtube.com/shorts/e0Zf6Zf1jjw" target="_blank">Watch 1-Minute Version</a>
-      <a href="https://youtu.be/02TLWRpa-eM" target="_blank">Watch 5-Minute Version</a>
-    </div>
+  <div class="about">
+    <h2>About This Project</h2>
+    <p>
+      This chatbot is built with AI for a dental clinic. It helps patients get instant answers to common questions, such as appointment booking, treatment info, and clinic timings. This project demonstrates both chatbot design and presentation skills for recruiters.
+    </p>
   </div>
 
   <div class="card">
+    <h2>🎥 2-Minute Demo</h2>
+    <iframe src="https://www.youtube.com/embed/MB27Ws6Gq0o" allowfullscreen></iframe>
+    <div class="links">
+      <a href="https://youtube.com/shorts/e0Zf6Zf1jjw" target="_blank">1-Minute Version</a>
+      <a href="https://youtu.be/02TLWRpa-eM" target="_blank">5-Minute Version</a>
+    </div>
+  </div>
+
+  <div class="card prototype">
     <h2>💬 Try the Live Chatbot</h2>
+    <!-- Screenshot of chatbot -->
+    <img src="chatbot-screenshot.png" alt="Chatbot Screenshot">
     <a href="https://creator.voiceflow.com/prototype/689bae715f1d22b716bb24df" target="_blank">Launch Prototype</a>
   </div>
 
