@@ -2,31 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GentleCare Dental Chatbot Demo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
       background-color: #f9f9f9;
+    }
+    header {
+      background-color: #4db6ac;
+      color: white;
       padding: 20px;
     }
     h1 {
-      color: #2c3e50;
+      margin: 0;
     }
-    iframe {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 400px;
-      height: 600px;
-      margin-top: 20px;
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      margin: 20px auto;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .links {
+      margin: 20px 0;
+    }
+    .links a {
+      color: #00796b;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #4db6ac;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #37968b;
+    }
+    footer {
+      background-color: #eee;
+      color: #555;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <h1>GentleCare Dental Clinic Chatbot</h1>
-  <p>Try the interactive chatbot demo below, built with Voiceflow.</p>
-  <iframe src="https://creator.voiceflow.com/prototype/689bae715f1d22b716bb24df" allowfullscreen></iframe>
+  <header>
+    <h1>GentleCare Dental Chatbot Demo</h1>
+    <p>Interactive AI Chatbot for Patient Queries</p>
+  </header>
+
+  <!-- Main 2-minute video -->
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/02TLWRpa-eM" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Links to other versions -->
+  <div class="links">
+    <a href="https://youtube.com/shorts/e0Zf6Zf1jjw" target="_blank">1-Minute Version</a> |
+    <a href="https://youtu.be/MB27Ws6Gq0o" target="_blank">5-Minute Full Demo</a>
+  </div>
+
+  <!-- Live prototype button -->
+  <p>
+    <a class="btn" href="https://creator.voiceflow.com/prototype/689bae715f1d22b716bb24df" target="_blank">
+      Try Live Chatbot Prototype
+    </a>
+  </p>
+
+  <footer>
+    &copy; 2025 GentleCare Dental Clinic | Demo Project by Kirti Bhalla
+  </footer>
 </body>
 </html>
