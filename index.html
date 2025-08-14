@@ -1,180 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dental Chatbot Demo</title>
-
-<!-- Inter font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg: #f5f5f7;
-  --text: #1d1d1f;
-  --card: #ffffff;
-  --muted: #6b7280;
-  --accent: #0071e3;
-  --accent-dark:#005bb5;
-  --radius: 18px;
-  --shadow: 0 8px 24px rgba(0,0,0,.06);
-  --border: #e7e7ea;
-}
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --accent: #0071e3;
+    --text: #1d1d1f;
+    --radius: 18px;
+    --shadow: 0 8px 20px rgba(0,0,0,0.06);
+    --border: #e0e0e0;
+    --font: 'Segoe UI', Roboto, sans-serif;
+  }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height:1.6;
-}
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
 
-.container{
-  width:min(1100px, 100%);
-  margin-inline:auto;
-  padding-inline:24px;
-}
+  header {
+    background: var(--card);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-/* Header */
-.site-header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-}
-.site-header .inner{
-  display:flex; align-items:center; gap:14px;
-  padding:18px 0;
-}
-.site-header img{height:42px}
-.site-header h1{
-  margin:0; font-size:1.6rem; font-weight:700; color:var(--accent);
-}
+  header img {
+    height: 42px;
+    border-radius: 8px;
+  }
 
-/* Hero */
-.hero{
-  text-align:center; padding:48px 0 12px;
-}
-.hero h2{font-size:2.2rem; margin:0 0 12px}
-.hero p{max-width:720px; margin:0 auto; color:#333}
+  header h1 {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin: 0;
+    font-weight: 600;
+  }
 
-/* Two-column section */
-.grid-two{
-  display:grid; gap:28px; align-items:start;
-  grid-template-columns:1fr;
-  margin:28px 0 12px;
-}
-@media (min-width: 992px){
-  .grid-two{ grid-template-columns: 1fr 1fr; }
-}
+  main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+  }
 
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:28px;
-  border:1px solid var(--border);
-}
+  .grid-two {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+    margin: 28px 0 12px;
+    align-items: stretch; /* NEW: equal height */
+  }
 
-.card h3{
-  margin:0 0 14px; font-size:1.3rem; font-weight:700;
-}
+  @media (min-width: 992px) {
+    .grid-two {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-/* Video embed keeps perfect 16:9 and consistent size */
-.video-embed{
-  position:relative; aspect-ratio:16/9;
-  border-radius:14px; overflow:hidden; border:1px solid var(--border);
-}
-.video-embed iframe{
-  position:absolute; inset:0; width:100%; height:100%; border:0;
-}
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    border: 1px solid var(--border);
+    display: flex;                /* NEW */
+    flex-direction: column;       /* NEW */
+    justify-content: space-between; /* NEW */
+  }
 
-/* Buttons */
-.btn-row{display:flex; gap:12px; justify-content:center; margin-top:16px}
-.btn{
-  display:inline-block; padding:12px 20px; border-radius:10px;
-  font-weight:600; text-decoration:none; transition:transform .15s ease, background .15s ease, border-color .15s ease;
-  border:1px solid transparent;
-}
-.btn.primary{background:var(--accent); color:#fff}
-.btn.primary:hover{background:var(--accent-dark); transform:translateY(-1px)}
-.btn.ghost{background:#eef5ff; color:#0b63c4; border-color:#dbe9ff}
-.btn.ghost:hover{background:#e3efff; transform:translateY(-1px)}
+  iframe {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    flex-grow: 1;
+  }
 
-/* Prototype card specifics */
-.prototype-wrap{
-  display:flex; flex-direction:column; align-items:center; gap:14px;
-}
-.prototype-shot{
-  width:100%; max-width:420px; /* smaller, controlled */
-  border-radius:14px; border:1px solid var(--border);
-  box-shadow:0 6px 16px rgba(0,0,0,.08);
-  display:block; margin-inline:auto;
-}
+  .screenshot {
+    width: 100%;
+    max-width: 400px; /* Smaller screenshot */
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
 
-/* About */
-.about.card{
-  text-align:center; margin:28px auto 48px; max-width:900px;
-}
-.about p{max-width:760px; margin:0 auto}
-.about a{color:var(--accent); font-weight:600}
+  h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
 
-/* Footer */
-footer{ text-align:center; color:#666; padding:24px 0 36px; font-size:.95rem }
+  p {
+    margin-bottom: 16px;
+  }
+
+  a.button {
+    background: var(--accent);
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+
+  a.button:hover {
+    background: #005bb5;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6e6e73;
+    padding: 20px;
+  }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="container inner">
-    <img src="logo.png" alt="Logo">
-    <h1>Dental Chatbot Demo</h1>
-  </div>
+<header>
+  <img src="logo.png" alt="Dental Chatbot Logo">
+  <h1>Dental Chatbot Demo</h1>
 </header>
 
 <main>
-  <!-- Hero -->
-  <section class="hero container">
-    <h2>Meet Your Dental Assistant Chatbot</h2>
-    <p>Explore an AI-powered assistant built for dental clinics—answering patient questions, helping with appointments, and sharing key information instantly. Designed and presented for recruiters.</p>
-  </section>
+  <div class="grid-two">
+    <div class="card">
+      <h2>Watch the 2-Minute Overview</h2>
+      <iframe src="https://www.youtube.com/embed/YOUR_2_MIN_VIDEO_ID" height="280"></iframe>
+    </div>
 
-  <!-- Side-by-side: Video (left) + Prototype (right) -->
-  <section class="container grid-two">
-    <!-- Left: 2-minute demo -->
-    <article class="card">
-      <h3>🎥 2-Minute Demo</h3>
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/MB27Ws6Gq0o" allowfullscreen></iframe>
-      </div>
-      <div class="btn-row">
-        <a class="btn ghost" href="https://youtube.com/shorts/e0Zf6Zf1jjw" target="_blank" rel="noopener">1-Minute</a>
-        <a class="btn ghost" href="https://youtu.be/02TLWRpa-eM" target="_blank" rel="noopener">5-Minute</a>
-      </div>
-    </article>
+    <div class="card">
+      <img src="screenshot.png" alt="Chatbot Screenshot" class="screenshot">
+      <a href="https://creator.voiceflow.com/prototype/YOUR_VOICEFLOW_LINK" target="_blank" class="button">Launch Chatbot</a>
+    </div>
+  </div>
 
-    <!-- Right: prototype -->
-    <article class="card">
-      <h3>💬 Chatbot Prototype</h3>
-      <div class="prototype-wrap">
-        <img class="prototype-shot" src="chatbot-screenshot.png" alt="Chatbot Screenshot">
-        <a class="btn primary" href="https://creator.voiceflow.com/prototype/689bae715f1d22b716bb24df" target="_blank" rel="noopener">Launch Chatbot</a>
-      </div>
-    </article>
-  </section>
-
-  <!-- About -->
-  <section class="about card container">
-    <h3>About This Project</h3>
+  <section class="card">
+    <h2>About This Project</h2>
     <p>
-      This AI powered chatbot demo is tailored for dental clinics. It can answer frequently asked questions, assist with scheduling, and improve patient engagement. The project also demonstrates creating a professional, interactive presentation. You can find some live demo videos as well.
-      <a href="https://www.youtube.com/playlist?list=PLsU94YN0DPVHEj13Mko64YSuYK_NyF9la" target="_blank" rel="noopener">Click here to watch more</a>.
+      This AI powered chatbot demo is tailored for dental clinics. It can answer frequently asked questions, assist with scheduling, and improve patient engagement. The project also demonstrates creating a professional, interactive presentation. You can find some live demo videos as well. 
+      <a href="https://www.youtube.com/playlist?list=PLsU94YN0DPVHEj13Mko64YSuYK_NyF9la" target="_blank">Click here to watch more</a>.
     </p>
   </section>
 </main>
 
-<footer class="container">
-  © 2025 Dental Chatbot Demo • Created by Kirti Bhalla
+<footer>
+  &copy; 2025 Dental Chatbot Demo. All rights reserved.
 </footer>
 
 </body>
