@@ -45,6 +45,15 @@
     font-weight: 600;
   }
 
+  .tagline {
+  margin: 4px 0;
+  font-size: 1.1rem;          
+  font-family: 'Georgia', serif;  
+  color: #0071e3;             
+  font-style: italic;        
+  font-weight: 500; 
+}
+
   main {
     max-width: 1200px;
     margin: auto;
@@ -71,9 +80,9 @@
     box-shadow: var(--shadow);
     padding: 28px;
     border: 1px solid var(--border);
-    display: flex;                /* NEW */
-    flex-direction: column;       /* NEW */
-    justify-content: space-between; /* NEW */
+    display: flex;                
+    flex-direction: column;       
+    justify-content: space-between; 
   }
 
   iframe {
@@ -85,7 +94,7 @@
 
   .screenshot {
     width: 100%;
-    max-width: 400px; /* Smaller screenshot */
+    max-width: 400px; 
     display: block;
     margin: 0 auto 16px;
     border-radius: 12px;
@@ -117,6 +126,14 @@
     background: #005bb5;
   }
 
+   body {
+  margin: 0;
+  font-family: var(--font);
+  background-color: #faf3e0;   
+  color: var(--text);
+  line-height: 1.6;
+}
+
   footer {
     text-align: center;
     font-size: 0.9rem;
@@ -129,15 +146,15 @@
 
 <header>
   <img src="logo.png" alt="Dental Chatbot Logo">
-  <h1> <center>Gentlecare Dental Clinic </center></h1>
-  <p class="tagline">Your Smile is our top priority</p>
-    <p class="tagline">We provide gentle care for all ages</p>
+  <h1>Gentlecare Dental Clinic</h1>
+  
 </header>
 
 <main>
-
+<h4><center><p class="tagline"> Your Smile is our top priority.We provide gentle care for all ages.</p></center></h4>
+  
 <section class="card">
-    <h2>About This Project</h2>
+    <h2>About</h2>
     <p>
       This AI powered chatbot demo is tailored for dental clinics. It can answer frequently asked questions, assist with scheduling, and improve patient engagement. The project also demonstrates creating a professional, interactive presentation. Try SMILEBOT to interact with AI powered tools and in case if it doesn't work you can find some live demo videos as well. 
       <a href="https://www.youtube.com/playlist?list=PLsU94YN0DPVHEj13Mko64YSuYK_NyF9la" target="_blank">Click here to watch more</a>.
